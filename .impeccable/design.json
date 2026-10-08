@@ -305,7 +305,14 @@
         "headline": "clamp(1.65rem, 3vw, 2.5rem) / 1.15",
         "title": "1.125rem / 1.4",
         "body": "1rem / 1.65",
-        "label": "0.7rem / 1.5"
+        "label": "0.7rem / 1.5",
+        "tracking": {
+          "display": "-0.045em",
+          "headline": "-0.035em",
+          "title": "-0.015em",
+          "label": "0.14em"
+        },
+        "headingWeight": 600
       },
       "layout": {
         "container": "1152px",
@@ -321,8 +328,10 @@
         "Búsqueda externa en LinkedIn",
         "Directorio de comunidad por interés"
       ],
-      "motion": "Scroll nativo, sin giros; movimiento reducido global",
-      "footer": "Verde profundo con franja de vitral"
+      "motion": "Scroll nativo y contenido inmediato; las rutas no cargan GSAP ni Matter.js. Transiciones CSS respetan movimiento reducido.",
+      "footer": "Verde profundo con franja de vitral",
+      "status": "Implementado y verificado a 390px y 1440px el 8 de octubre de 2026",
+      "interaction": "Radios nativos, selección semántica, foco visible, anclas y reinicio confirmado en dos pasos"
     }
   },
   "components": [

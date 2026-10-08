@@ -15,28 +15,28 @@ colors:
 typography:
   brand:
     fontFamily: "DM Sans, Inter, system-ui, sans-serif"
-    fontSize: "1.875rem"
-    fontWeight: 700
-    lineHeight: "2.25rem"
-    letterSpacing: "normal"
-  display:
-    fontFamily: "DM Sans, Inter, system-ui, sans-serif"
-    fontSize: "2.25rem"
-    fontWeight: 700
-    lineHeight: "1.25"
-    letterSpacing: "normal"
-  headline:
-    fontFamily: "DM Sans, Inter, system-ui, sans-serif"
     fontSize: "1.5rem"
     fontWeight: 700
-    lineHeight: "2rem"
-    letterSpacing: "normal"
+    lineHeight: "1.2"
+    letterSpacing: "-0.04em"
+  display:
+    fontFamily: "DM Sans, Inter, system-ui, sans-serif"
+    fontSize: "clamp(2.25rem, 5vw, 4.25rem)"
+    fontWeight: 600
+    lineHeight: "1.06"
+    letterSpacing: "-0.045em"
+  headline:
+    fontFamily: "DM Sans, Inter, system-ui, sans-serif"
+    fontSize: "clamp(1.65rem, 3vw, 2.5rem)"
+    fontWeight: 600
+    lineHeight: "1.15"
+    letterSpacing: "-0.035em"
   title:
     fontFamily: "DM Sans, Inter, system-ui, sans-serif"
     fontSize: "1.125rem"
-    fontWeight: 700
-    lineHeight: "1.75rem"
-    letterSpacing: "normal"
+    fontWeight: 600
+    lineHeight: "1.4"
+    letterSpacing: "-0.015em"
   lead:
     fontFamily: "DM Sans, Inter, system-ui, sans-serif"
     fontSize: "1.125rem"
@@ -47,17 +47,18 @@ typography:
     fontFamily: "DM Sans, Inter, system-ui, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
-    lineHeight: "1.5rem"
+    lineHeight: "1.65"
     letterSpacing: "normal"
   label:
     fontFamily: "DM Sans, Inter, system-ui, sans-serif"
-    fontSize: "0.875rem"
-    fontWeight: 600
-    lineHeight: "1.25rem"
-    letterSpacing: "0.1em"
+    fontSize: "0.7rem"
+    fontWeight: 700
+    lineHeight: "1.5"
+    letterSpacing: "0.14em"
 rounded:
   sm: "6px"
-  md: "12px"
+  md: "20px"
+  focal: "28px"
   full: "9999px"
 spacing:
   gutter: "24px"
@@ -141,7 +142,7 @@ para el rediseño autorizado. La paleta institucional y la verdad de producto se
   Inicio, Diagnóstico, Mi ruta y Comunidad. El texto ya no se superpone al vidrio.
 - **Tipografía:** DM Sans. `.h1` usa `clamp(2.25rem, 5vw, 4.25rem)` / 1.06;
   `.h2` usa `clamp(1.65rem, 3vw, 2.5rem)` / 1.15; `.h3` 1.125rem / 1.4.
-  Tracking de titulares -0.04em; cuerpo 1rem / 1.65. Etiquetas 0.7rem / 1.5.
+  Tracking de h1 -0.045em, h2 -0.035em y h3 -0.015em; cuerpo 1rem / 1.65. Etiquetas 0.7rem / 1.5.
 - **Composición:** contenedor 1152px, canalón 24px, secciones 64–96px. Resultados usa el ancho
   de composición con resumen y comparación; la regla antigua de columna única queda retirada.
 - **Formas:** tarjetas de 20px, paneles focales 28px y botones píldora. Bordes de tinta al 12%.
@@ -154,9 +155,9 @@ para el rediseño autorizado. La paleta institucional y la verdad de producto se
 - **Inicio:** promesa breve, fotografía editorial y explicación de tres pasos; las cinco áreas
   mantienen igualdad de tratamiento. Se retira el mosaico físico de la portada, no los activos.
 - **Diagnóstico:** una pregunta por pantalla, radios nativos con teclado, progreso por respuestas,
-  persistencia y reinicio confirmado. Animación solo de entrada, nunca necesaria para responder.
-- **Movimiento:** scroll nativo, sin inercia ni ocultación de contenido. Las transiciones existentes
-  respetan movimiento reducido; ningún nuevo panel depende de una animación para aparecer.
+  persistencia y reinicio confirmado. Contenido inmediato, sin animación de entrada.
+- **Movimiento:** scroll nativo, sin inercia ni ocultación de contenido. Las rutas no cargan GSAP
+  ni Matter.js; las transiciones CSS respetan movimiento reducido.
 - **Interacción:** controles de al menos 44px, foco visible, navegación interna con anclas,
   detalles nativos y estados seleccionados semánticos. Sin giros de tarjetas ni hover obligatorio.
 - **Pie:** superficie verde profundo, navegación breve y contexto estudiantil; vitral como franja.

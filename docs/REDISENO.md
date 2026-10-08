@@ -2,7 +2,37 @@
 
 Fecha de revisión: 7 de octubre de 2026 (México).
 Rama: `codex/rediseno-potropath`, creada desde `main`, commit `9a9780b`.
-Estado: implementación por fases en curso. Cada commit agrupa tres archivos; el cambio previo de `package-lock.json` queda excluido.
+Estado: implementación y verificación terminadas el 8 de octubre de 2026. Cada commit agrupa tres archivos; el cambio previo de `package-lock.json` queda excluido.
+
+## Implementación entregada
+
+La auditoría y propuesta que siguen registran el punto de partida del 7 de octubre; las referencias a GSAP, mosaico, listas planas y errores describen la versión anterior. La especificación vigente está al inicio de `DESIGN.md`.
+
+| Fase | Resultado | Commits |
+|---|---|---|
+| Dirección y sistema | Alcance, tokens editoriales, navegación, layout y pie | `39ae948`, `c182fdd`, `de630f3` |
+| Ruta profesional | 25 habilidades, 10 credenciales y 5 puestos documentados; exploradores y LinkedIn | `83c7962`, `f087ac2` |
+| Vistas | Inicio, diagnóstico, resultados y comunidad renovados | `237a7df`, `cfd9d38` |
+| Integridad y pulido | Pruebas, contraste, anclas y retirada de animación del bundle | `09105f4`, `c242320`, `7fd4ef9`, `2f68c8d` |
+| Documentación | Capacidades, mantenimiento y evidencia de entrega actualizados | `1644757` y commit de cierre |
+
+Cada commit contiene tres archivos, sin trailers de coautor. El cambio previo de `package-lock.json` permanece fuera de los commits.
+
+### Validación de entrega
+
+- Siete pruebas nativas de Node pasan: escala 20–100, neutral 60, ganador único, empates, respuestas inválidas, referencias entre datos y búsquedas codificadas.
+- Lint sin errores ni advertencias; build de producción correcto. JavaScript: 296.52 kB, 93.42 kB gzip, frente a 141.83 kB gzip de la entrada anterior. Las rutas ya no cargan GSAP ni Matter.js.
+- Navegador a 390 y 1440 px: Inicio, Diagnóstico, Resultados y Comunidad. Sin desbordamiento horizontal en las cinco rutas de resultados; fotografías cargadas y consola sin errores ni advertencias.
+- Recorrido completo de 50 respuestas, uso de radios con teclado, recarga conservando 25 respuestas y progreso basado en respuestas reales.
+- Ganador único Software con 100 frente a 60; empate neutral de las cinco áreas con título honesto. Reinicio confirmado y estado sin resultados comprobados; las respuestas creadas para probar quedaron eliminadas.
+- Exploración de habilidades, comparación de dos credenciales, cambio de puesto y enlace contextual hacia la especialidad en Comunidad.
+- Búsqueda enviada a LinkedIn con “Software Engineer” y “Ciudad de México”; nueva pestaña con ambos parámetros preservados. No se incorpora extracción de vacantes.
+- Menú móvil con cierre por Escape y página 404 verificados. Vista previa final en Inicio, sin dimensiones de prueba forzadas.
+- Detector local de Impeccable no disponible en la ruta documentada; no se presenta como ejecutado. Esta revisión no sustituye una auditoría completa de accesibilidad ni una validación psicométrica.
+
+### Datos institucionales pendientes
+
+La interfaz está implementada; la invitación Teams, la agenda de eventos y la actividad local de los capítulos requieren confirmación institucional. Se muestran como pendientes. Los puestos son ejemplos documentados con fuente y fecha de revisión, sin garantía de seguir abiertos. No se ha desplegado ni publicado esta rama.
 
 ## Producto y arquitectura
 
