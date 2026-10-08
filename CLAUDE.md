@@ -4,8 +4,8 @@ Diagnóstico de afinidad vocacional **dentro** de Ingeniería en Computación, p
 Facultad de Ingeniería de la UAEMéx. 50 preguntas → área de mayor afinidad → habilidades,
 certificaciones y comunidad. Sin registro, sin datos personales, todo del lado del cliente.
 
-React 19 + Vite + Tailwind CSS v4 + React Router + Zustand (persistido) + GSAP. Español (es-MX).
-Matter.js sólo para la física del mosaico del hero, cargado bajo demanda.
+React 19 + Vite + Tailwind CSS v4 + React Router + Zustand (persistido). Español (es-MX).
+Scroll nativo. GSAP y Matter.js permanecen como legado, sin cargar en las vistas actuales.
 
 ---
 
@@ -40,11 +40,9 @@ Todo lo demás está en los documentos. Estos cuatro se equivocan rápido y cues
    existe para ganarse. Ver `PRODUCT.md` → *Evidence on Hand*.
 2. **La paleta es cerrada.** Cinco colores del manual de identidad de la UAEMéx más sus tintes
    derivados. Si falta un matiz, se **deriva**; no se inventa. Nunca un color suelto.
-3. **Todo movimiento es opcional.** Cada animación va dentro de
-   `gsap.matchMedia('(prefers-reduced-motion: no-preference)')`, o comprueba
-   `prefersReducedMotion()` en las ramas imperativas. Y todo revelado usa `gsap.from`, nunca
-   `gsap.to` desde un estado oculto: el HTML por defecto es el estado **visible**, así que si el JS
-   falla la página se ve completa.
+3. **Todo movimiento es opcional.** Las vistas actuales aparecen inmediatamente y usan scroll
+   nativo. Cualquier animación nueva debe respetar `prefers-reduced-motion` y conservar el
+   contenido visible por defecto. Esta SPA necesita JavaScript para renderizar.
 4. **Español en todo.** Copy, comentarios de código, mensajes de error. La voz es directa y sin
    condescendencia: habla a estudiantes como futuros profesionales.
 
@@ -59,8 +57,9 @@ npm run preview   # previsualizar el build
 npm run lint      # oxlint
 ```
 
-No hay suite de pruebas. La verificación real de un cambio de UI es: `npm run lint`, `npm run build`,
-el detector de Impeccable, y **mirar la página** en los anchos que importan (390px y 1440px).
+Ejecutar `node --test tests/*.test.js`, `npm run lint` y `npm run build`. Para UI,
+**mirar la página** a 390px y 1440px y recorrer el flujo con teclado. El detector de Impeccable
+es complementario cuando esté instalado; no estaba disponible en la revisión de octubre de 2026.
 
 ```bash
 node ~/.claude/skills/impeccable/scripts/detect.mjs --json src index.html
@@ -81,29 +80,34 @@ src/
   data/                     Contenido estático — NO es un CMS; cambiarlo es cambiar código
     questions.js            50 preguntas (10 por área), escala 1–5. ids: `<areaId>-<n>`
     areas.js                Las cinco áreas fijas
-    roadmap.js              Habilidades y certificaciones por área
+    roadmap.js              Habilidades por etapas y proyectos
+    credentials.js          Credenciales comparables con fuentes
+    careers.js              Ejemplos profesionales documentados
+    community.js            Directorio, fotografías y disponibilidad
   store/quizStore.js        Zustand persistido en localStorage, clave `potropath-quiz`
   lib/
+    affinity.js             Cálculo de afinidad, escala 20–100 y neutral 60
+    careerSearch.js         Parámetros y enlace de búsqueda en LinkedIn
     gsap.js                 Punto ÚNICO de registro de GSAP y sus plugins
     motion.js               Tokens de movimiento: DUR, EASE, STAGGER, media queries
     useDocumentTitle.js     Título por vista
     useMosaicPhysics.js     Física del mosaico del hero (matter-js, carga diferida)
   components/
     layout/                 Navbar, Footer, Layout
+    results/                SkillPath, CredentialExplorer, CareerExplorer
     ui/                     VitralBackdrop, HeroMosaic, PhotoCard, ConfirmButton, Carousel
     motion/                 Reveal, SectionDivider, RouteTransition, SmoothScroller
   pages/                    Home, Quiz, Results, Community, NotFound
+tests/                      Pruebas nativas de Node para afinidad y rutas
 assets-src/                 Masters sin comprimir. Fuera de public/, no entran al
                             build (ver su README.md)
 public/images/              vitral-biblioteca.webp y potro-mascota.webp son activos
                             institucionales reales, areas/*.webp las cinco fotos de
                             área (ver su README.md); og-potropath.png es la tarjeta
                             de vista previa generada
-public/images/comunidad/    Las fotos de /comunidad. Su README.md manda: qué
-                            archivo va en qué hueco, con qué medidas y cuáles
-                            siguen pendientes. El hero sirve dos recortes
-                            distintos del mismo original por <picture> — no es
-                            una optimización, es encuadre
+public/images/comunidad/    Fotografías reales; su README distingue activos usados,
+                            pendientes y fotografías externas que no se presentan
+                            como experiencias locales
 ```
 
 Cuando regeneres `og-potropath.png`, la fuente de la composición vive en `DESIGN.md` →
@@ -113,6 +117,10 @@ absolutizar `og:image` en `index.html` y añadir `og:url` — está marcado ahí
 ---
 
 ## Convenciones del código
+
+Las reglas sobre GSAP y Matter.js aplican solo si se reutilizan los componentes históricos;
+no son una indicación para incorporarlos al rediseño. La especificación vigente está al
+inicio de `DESIGN.md` y en `extensions.redesign202610` del sidecar.
 
 - **Los comentarios explican el porqué, no el qué.** Este repositorio documenta sus decisiones en el
   código: por qué `scaleX` y no `width`, por qué `svh` y no `vh`, por qué `revert()` y no `kill()`.

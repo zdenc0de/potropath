@@ -83,8 +83,8 @@ semestre, aquí".
 
 ## Capabilities and Constraints
 
-- **Solo del lado del cliente.** React + Vite, Tailwind CSS v4, React Router, Zustand (persistido) y
-  GSAP para el movimiento. Sin ida y vuelta al servidor durante el diagnóstico.
+- **Solo del lado del cliente.** React + Vite, Tailwind CSS v4, React Router, Zustand (persistido) con
+  scroll nativo y controles accesibles. Sin ida y vuelta al servidor durante el diagnóstico.
 - **El contenido son módulos de datos estáticos**, no un CMS: preguntas, áreas y ruta viven en
   `src/data/`. Cambiarlos es un cambio de código.
 - **Cinco áreas fijas:** Inteligencia Artificial, Ciberseguridad, Cloud Computing, Ciencia de Datos
@@ -103,12 +103,12 @@ semestre, aquí".
   una capa de cuenta o de seguimiento de progreso post-MVP (deliberadamente fuera de alcance por
   ahora).
 
-**Ampliación solicitada para el rediseño (en implementación).** La ruta incluirá
+**Rediseño implementado.** La ruta incluye
 habilidades organizadas por etapas, credenciales comparables y un explorador de ejemplos de puestos
 de empresas tecnológicas con responsabilidades y requisitos tomados de fuentes oficiales. Cada
-ejemplo identificará empresa, ubicación, fuente y fecha de revisión; no implica una vacante vigente,
+ejemplo identifica empresa, ubicación, fuente y fecha de revisión; no implica una vacante vigente,
 un convenio ni elegibilidad del estudiante. La afinidad no mide dominio ni preparación laboral.
-Se añadirá una búsqueda externa en LinkedIn por puesto y ubicación editable, inicialmente México,
+Incluye una búsqueda externa en LinkedIn por puesto y ubicación editable, inicialmente México,
 sin transmitir respuestas del diagnóstico ni integrar un feed de vacantes en vivo. El alcance y
 los criterios de diseño están en `docs/REDISENO.md` → *Ampliación solicitada: de la afinidad a la vida
 profesional*.
@@ -124,9 +124,9 @@ profesional*.
   sobre tipografía, layout o movimiento — esos siguen siendo decisiones de diseño abiertas, no
   restricciones heredadas.
 - **Activos institucionales reales disponibles:**
-  - `public/images/vitral-biblioteca.png` — fotografía del vitral real de la biblioteca de la
+  - `public/images/vitral-biblioteca.webp` — fotografía del vitral real de la biblioteca de la
     Facultad de Ingeniería; un panorámico muy ancho (~8.9:1) de sus cuatro paneles de vidrio.
-  - `public/images/potro-mascota.png` — la mascota de la universidad, recortada de su fondo
+  - `public/images/potro-mascota.webp` — la mascota de la universidad, recortada de su fondo
     original.
 - **Voz:** español, directa y sin condescendencia — se dirige a los estudiantes como futuros
   profesionales que están tomando una decisión real, no como niños a los que se orienta.
@@ -146,7 +146,7 @@ profesional*.
 **Confirmado como próximo, pero todavía no real.** Cada uno de estos llegará a ser dato real; hasta
 entonces debe presentarse honestamente como pendiente y nunca simularse como si existiera:
 
-- El código de invitación a los canales de Microsoft Teams (`TEAMS_JOIN_CODE` es actualmente `null`).
+- El código de invitación a los canales de Microsoft Teams (`TEAMS_JOIN_URL` es actualmente `null`).
 - La lista confirmada de capítulos IEEE y una agenda real de eventos (`events` está vacío).
 - La estadística de titulación de la UAEMéx que sustentará el planteamiento (nota placeholder en el
   README).

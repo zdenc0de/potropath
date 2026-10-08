@@ -31,10 +31,10 @@ El contexto actual en la Facultad de Ingeniería de la UAEMéx refleja un área 
 
 PotroPath se presentará como un Producto Mínimo Viable (MVP) sin fricción de entrada (sin sistema de registro de usuarios), enfocado en la entrega de valor inmediato. Incluye:
 
-- **Motor de Diagnóstico Situacional:** cuestionario de 50 preguntas (10 por área de especialización) basadas en escenarios prácticos de la industria, evaluando afinidad hacia Inteligencia Artificial, Ciberseguridad, Cloud Computing, Ciencia de Datos y Desarrollo de Software.
-- **Dashboard de Resultados y Ruta:** interfaz dinámica que, tras finalizar el test, muestra la rama de mayor compatibilidad, habilidades demandadas en el mercado laboral y certificaciones clave para ese perfil.
+- **Motor de Diagnóstico Situacional:** cuestionario de 50 preguntas (10 por área de especialización) formuladas como afirmaciones de interés, evaluando afinidad hacia Inteligencia Artificial, Ciberseguridad, Cloud Computing, Ciencia de Datos y Desarrollo de Software.
+- **Dashboard de Resultados y Ruta:** interfaz dinámica que, tras finalizar el test, reconoce empates y permite explorar las cinco áreas, 25 habilidades con proyectos, 10 credenciales comparables y cinco ejemplos de puestos documentados, además de buscar en LinkedIn.
 - **Sección de Inmersión Universitaria (IEEE):** apartado dedicado a conectar al estudiante con la Rama Estudiantil IEEE UAEMéx, visibilizando los capítulos técnicos y eventos presenciales de la facultad.
-- **Módulo de Comunidad Segura:** integración con canales de Microsoft Teams estructurados por especialidad, a los que se entra con la cuenta institucional — así cada estudiante sabe que comparte el espacio con compañeros de su propia facultad y no con desconocidos —, para fomentar el networking técnico y la formación de equipos, garantizando la privacidad de los datos personales.
+- **Directorio de comunidad:** intereses, sociedades IEEE y fotografías reales. La invitación a Teams, la actividad local de los capítulos y la agenda se muestran pendientes de confirmación.
 
 ### 3. Propuesta de valor
 
@@ -44,10 +44,10 @@ A diferencia de los test vocacionales tradicionales que se enfocan en elegir una
 
 Para la construcción del MVP se optó por un enfoque orientado a la velocidad de despliegue y validación temprana, utilizando tecnologías de dominio actual del equipo, con una arquitectura modular que facilita su futura integración institucional.
 
-- **Frontend (agilidad y experiencia de usuario):** interfaz desarrollada con **React 19** y **Vite**, estilizada con **Tailwind CSS v4** y animada con **GSAP**. Opera completamente del lado del cliente: no hay ida y vuelta al servidor durante el diagnóstico, no hay sesión y no se recogen datos personales.
+- **Frontend (agilidad y experiencia de usuario):** interfaz desarrollada con **React 19** y **Vite**, estilizada con **Tailwind CSS v4** con scroll nativo y controles accesibles. Opera completamente del lado del cliente: no hay ida y vuelta al servidor durante el diagnóstico, no hay sesión y no se recogen datos personales.
 - **Gestión de datos locales:** las 50 preguntas, las cinco áreas y el contenido de ruta son módulos JavaScript estáticos en `src/data/` — no un CMS: cambiarlos es un cambio de código. El estado del cuestionario lo administra **Zustand** y persiste en `localStorage` (clave `potropath-quiz`), de modo que una sesión sobrevive al cierre de la pestaña sin pedir registro.
-- **Modelo de puntaje:** cada pregunta suma únicamente a su propia área; los totales se normalizan a un porcentaje de afinidad de 0 a 100 y se ordenan. Se muestran los cinco puntajes, no sólo el ganador.
-- **Movimiento y accesibilidad:** todo el movimiento está condicionado a `prefers-reduced-motion` y todo revelado se construye de manera que el estado por defecto del HTML sea el visible — si el JavaScript falla o tarda, la página se ve completa. **Matter.js** (física del mosaico de la portada) se carga sólo bajo demanda, en el primer arrastre, para no cobrarle 26 KB comprimidos a quien únicamente lee la portada desde un teléfono con red de campus mala.
+- **Modelo de puntaje:** cada pregunta suma únicamente a su propia área; los totales se normalizan a un porcentaje de afinidad de 20 a 100 (neutral = 60) y se ordenan. Se muestran los cinco puntajes, no sólo el ganador.
+- **Movimiento y accesibilidad:** las vistas aparecen sin esperar animaciones; navegación por teclado, radios nativos, foco visible y estilos de movimiento reducido. Los componentes históricos de GSAP y Matter.js permanecen en el repositorio, pero las rutas actuales no los cargan.
 - **Backend y base de datos (analíticas anónimas):** ⏳ *pendiente de definir* — se contempla **Supabase** (PostgreSQL) con el único fin de recolectar estadísticas anónimas de los resultados finales, sin sistemas de autenticación ni perfiles de usuario, para maximizar la participación.
 - **Proyección institucional y escalabilidad:** aunque el MVP se ejecuta sobre un entorno serverless moderno, el proyecto contempla en fases posteriores la viabilidad de migrar su backend a PHP y bases de datos locales, alineándose a los estándares e infraestructura tecnológica actual de la UAEMéx para asegurar su adopción oficial y mantenimiento a largo plazo.
 
@@ -62,8 +62,8 @@ Las versiones exactas las fija `package-lock.json`; `npm ci` las reproduce tal c
 | Estilos                   | [Tailwind CSS](https://tailwindcss.com/)             | 4       | ✅ Configurado |
 | Enrutamiento              | [React Router](https://reactrouter.com/)             | 7       | ✅ Configurado |
 | Estado global             | [Zustand](https://zustand.docs.pmnd.rs/)             | 5       | ✅ Configurado |
-| Animación                 | [GSAP](https://gsap.com/) + `@gsap/react`            | 3       | ✅ Configurado |
-| Física del mosaico        | [Matter.js](https://brm.io/matter-js/) (bajo demanda) | 0.20    | ✅ Configurado |
+| Animación                 | [GSAP](https://gsap.com/) + `@gsap/react`            | 3       | Legado sin uso en vistas |
+| Física del mosaico        | [Matter.js](https://brm.io/matter-js/) (legado) | 0.20 | Sin uso en vistas |
 | Linter                    | [oxlint](https://oxc.rs/docs/guide/usage/linter)     | 1       | ✅ Configurado |
 | Backend / DB analítica    | [Supabase](https://supabase.com/)                    | —       | ⏳ Pendiente   |
 
@@ -128,9 +128,10 @@ Probar en un teléfono real vale la pena: el teléfono con red de campus mala es
 
 ### Verificación de un cambio
 
-No hay suite de pruebas automatizadas. La verificación real de un cambio es:
+Las pruebas cubren la escala, empates, respuestas inválidas, integridad de las rutas y búsquedas externas. Ejecutar:
 
 ```bash
+node --test tests/*.test.js  # pruebas de afinidad y rutas profesionales
 npm run lint      # sin errores nuevos
 npm run build     # el build pasa
 ```
@@ -143,8 +144,8 @@ npm run build     # el build pasa
 | --- | --- | --- |
 | `/` | Inicio | Presentación y entrada al diagnóstico |
 | `/quiz` | Diagnóstico | Las 50 preguntas, una por pantalla, con progreso reanudable |
-| `/resultados` | Mi ruta | Los cinco puntajes de afinidad, habilidades y certificaciones del área ganadora |
-| `/comunidad` | Comunidad | Canales de Teams por especialidad y Rama Estudiantil IEEE UAEMéx |
+| `/resultados` | Mi ruta | Afinidad, cinco rutas, comparación de credenciales, puestos y búsqueda en LinkedIn |
+| `/comunidad` | Comunidad | Directorio por intereses, IEEE y galería; acceso y agenda pendientes |
 | cualquier otra | 404 | Página de no encontrado |
 
 ## Estructura del repositorio
@@ -157,15 +158,19 @@ src/
   data/                     Contenido estático — no es un CMS; cambiarlo es cambiar código
     questions.js            50 preguntas (10 por área), escala 1–5
     areas.js                Las cinco áreas fijas
-    roadmap.js              Habilidades y certificaciones por área
+    roadmap.js              Habilidades por etapas y proyectos por área
+    credentials.js          Diez credenciales con fuentes y requisitos
+    careers.js              Cinco ejemplos profesionales con fuentes
+    community.js            Intereses, sociedades, fotos y disponibilidad
   store/quizStore.js        Zustand persistido en localStorage (clave `potropath-quiz`)
-  lib/                      Registro único de GSAP, tokens de movimiento y hooks compartidos
-  components/               layout/ · ui/ · motion/
+  lib/                      Afinidad, búsqueda externa, hooks y utilidades históricas
+  components/               layout/ · results/ · ui/ · motion/
   pages/                    Home, Quiz, Results, Community, NotFound
 public/images/              Activos que se publican tal cual (vitral, mascota, fotos de área
                             y de comunidad). Sus README documentan cada imagen y la
                             especificación de las que todavía faltan
 assets-src/                 Masters sin comprimir; fuera de public/, no entran al build
+tests/                      Pruebas nativas de Node, sin dependencias adicionales
 dist/                       Salida de `npm run build` (ignorada por Git)
 ```
 
@@ -188,7 +193,7 @@ En decisiones visuales manda `DESIGN.md`; en verdad de producto y voz manda `PRO
 
 **Pendiente, declarado como pendiente en la propia interfaz** — ninguno de estos se simula como si ya existiera:
 
-- El código de invitación a los canales de Microsoft Teams (`TEAMS_JOIN_CODE_URL` es `null`).
+- El código de invitación a los canales de Microsoft Teams (`TEAMS_JOIN_URL` es `null`).
 - La agenda real de eventos de la Rama IEEE y la confirmación de sus capítulos activos.
 - La estadística de titulación de la UAEMéx que sustentará el planteamiento.
 - El backend de analíticas anónimas en Supabase.
