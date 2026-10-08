@@ -296,7 +296,34 @@
         "name": "xl",
         "value": "1280px"
       }
-    ]
+    ],
+    "redesign202610": {
+      "precedence": "Sustituye los tratamientos históricos en conflicto; ver DESIGN.md, Redesign 2026-10.",
+      "direction": "Guía editorial universitaria",
+      "typography": {
+        "display": "clamp(2.25rem, 5vw, 4.25rem) / 1.06",
+        "headline": "clamp(1.65rem, 3vw, 2.5rem) / 1.15",
+        "title": "1.125rem / 1.4",
+        "body": "1rem / 1.65",
+        "label": "0.7rem / 1.5"
+      },
+      "layout": {
+        "container": "1152px",
+        "gutter": "24px",
+        "cardRadius": "20px",
+        "focalRadius": "28px",
+        "header": "papel, marca 24px y vitral de 8px"
+      },
+      "components": [
+        "Mapa de habilidades por etapas",
+        "Tarjetas de credenciales comparables",
+        "Explorador de puestos documentados",
+        "Búsqueda externa en LinkedIn",
+        "Directorio de comunidad por interés"
+      ],
+      "motion": "Scroll nativo, sin giros; movimiento reducido global",
+      "footer": "Verde profundo con franja de vitral"
+    }
   },
   "components": [
     {
