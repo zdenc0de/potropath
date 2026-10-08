@@ -1,5 +1,18 @@
 # Fotos de Comunidad
 
+## Uso vigente — rediseño de octubre de 2026
+
+La página usa `quienes-somos.webp` en un hero dividido: texto sobre papel y fotografía separada
+con pie. Ya no superpone el texto ni aplica un velo; el recorte móvil se conserva como activo,
+pero no se utiliza en esta composición. La galería muestra únicamente las tres imágenes
+existentes, sin huecos pendientes ni carrusel. Su catálogo vive en `src/data/community.js`.
+La fotografía de UPIITA-IPN no se utiliza en el rediseño. Las cuatro marcas IEEE aparecen
+dentro de sus tarjetas y sobre papel, acompañadas de su estado de confirmación local.
+
+Las notas siguientes conservan la procedencia de archivos y los encuadres de la primera versión;
+los tratamientos anteriores no obligan a la composición vigente.
+
+
 Fotografías reales de la vida estudiantil de la Facultad de Ingeniería, para la
 pestaña `/comunidad` (`src/pages/Community.jsx`). A diferencia de las fotos de
 `public/images/` que ilustran las áreas de especialización de forma genérica,
