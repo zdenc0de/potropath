@@ -3,10 +3,7 @@ import { CAREERS } from '../../data/careers'
 import { AREA_BY_ID } from '../../data/areas'
 import { ROADMAP } from '../../data/roadmap'
 
-export function linkedInSearch(keywords, location) {
-  const params = new URLSearchParams({ keywords: keywords.trim(), location: location.trim() })
-  return `https://www.linkedin.com/jobs/search/?${params.toString()}`
-}
+import { linkedInSearch } from '../../lib/careerSearch'
 
 export default function CareerExplorer({ areaId }) {
   const [selectedId, setSelectedId] = useState(CAREERS.find((role) => role.areaId === areaId).id)
