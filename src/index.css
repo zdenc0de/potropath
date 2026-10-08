@@ -608,6 +608,7 @@
   .community-directory { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .chapter-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .chapter-card { background: white; color: var(--color-ink); border-radius: 16px; padding: 22px; }
+  .chapter-card .h3 { color: var(--color-ink); }
   .chapter-logo { height: 92px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
   .chapter-logo img { max-height: 70px; max-width: 100%; width: auto; }
   .gallery-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 20px; }
