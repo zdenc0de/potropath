@@ -90,7 +90,7 @@ semestre, aquí".
 - **Cinco áreas fijas:** Inteligencia Artificial, Ciberseguridad, Cloud Computing, Ciencia de Datos
   y Desarrollo de Software.
 - **Modelo de puntaje:** cada pregunta suma únicamente a su propia área; los totales por área se
-  normalizan a un porcentaje de afinidad de 0 a 100 y se ordenan. Se muestran los cinco puntajes, no
+  expresan como porcentaje del máximo posible (20 a 100; neutral = 60) y se ordenan. Se muestran los cinco puntajes, no
   solo el ganador.
 - **Supabase (PostgreSQL) está planeado solo para analíticas anónimas agregadas** — recolectar
   resultados finales sin autenticación y sin perfiles de usuario, para que medir nunca cueste
@@ -102,6 +102,16 @@ semestre, aquí".
 - **Sin decidir:** si las analíticas agregadas llegan a ser algo que el estudiante ve, y cómo sería
   una capa de cuenta o de seguimiento de progreso post-MVP (deliberadamente fuera de alcance por
   ahora).
+
+**Ampliación solicitada para el rediseño (en implementación).** La ruta incluirá
+habilidades organizadas por etapas, credenciales comparables y un explorador de ejemplos de puestos
+de empresas tecnológicas con responsabilidades y requisitos tomados de fuentes oficiales. Cada
+ejemplo identificará empresa, ubicación, fuente y fecha de revisión; no implica una vacante vigente,
+un convenio ni elegibilidad del estudiante. La afinidad no mide dominio ni preparación laboral.
+Se añadirá una búsqueda externa en LinkedIn por puesto y ubicación editable, inicialmente México,
+sin transmitir respuestas del diagnóstico ni integrar un feed de vacantes en vivo. El alcance y
+los criterios de diseño están en `docs/REDISENO.md` → *Ampliación solicitada: de la afinidad a la vida
+profesional*.
 
 ## Brand Commitments
 

@@ -129,6 +129,40 @@ components:
      canónicas del formato DESIGN.md y de las herramientas que lo leen. El
      contenido es español. -->
 
+## Redesign 2026-10 — especificación vigente
+
+Esta sección sustituye las decisiones históricas de composición que entren en conflicto con ella.
+Las secciones posteriores conservan el razonamiento de la primera versión, no son restricciones
+para el rediseño autorizado. La paleta institucional y la verdad de producto se conservan.
+
+- **Dirección:** guía editorial universitaria. Titulares amplios, numeración de secciones,
+  superficies papel y verde bruma, bloques focales verde profundo y fotografía real con pie.
+- **Navegación:** cabecera de papel compacta, marca de 24px, franja de vitral de 8px como firma;
+  Inicio, Diagnóstico, Mi ruta y Comunidad. El texto ya no se superpone al vidrio.
+- **Tipografía:** DM Sans. `.h1` usa `clamp(2.25rem, 5vw, 4.25rem)` / 1.06;
+  `.h2` usa `clamp(1.65rem, 3vw, 2.5rem)` / 1.15; `.h3` 1.125rem / 1.4.
+  Tracking de titulares -0.04em; cuerpo 1rem / 1.65. Etiquetas 0.7rem / 1.5.
+- **Composición:** contenedor 1152px, canalón 24px, secciones 64–96px. Resultados usa el ancho
+  de composición con resumen y comparación; la regla antigua de columna única queda retirada.
+- **Formas:** tarjetas de 20px, paneles focales 28px y botones píldora. Bordes de tinta al 12%.
+  Jerarquía mediante tono, sin sombras decorativas.
+- **Resultados:** resumen de afinidad que reconoce empates, selector de las cinco rutas,
+  habilidades por etapas, comparación de dos credenciales, puestos con fuentes y búsqueda externa
+  en LinkedIn. El 60% neutral no representa dominio ni probabilidad de empleo.
+- **Comunidad:** hero dividido entre texto y foto, directorio de intereses sin giros, sociedades
+  con logo y descripción en la misma tarjeta; solo fotos disponibles, agenda pendiente compacta.
+- **Inicio:** promesa breve, fotografía editorial y explicación de tres pasos; las cinco áreas
+  mantienen igualdad de tratamiento. Se retira el mosaico físico de la portada, no los activos.
+- **Diagnóstico:** una pregunta por pantalla, radios nativos con teclado, progreso por respuestas,
+  persistencia y reinicio confirmado. Animación solo de entrada, nunca necesaria para responder.
+- **Movimiento:** scroll nativo, sin inercia ni ocultación de contenido. Las transiciones existentes
+  respetan movimiento reducido; ningún nuevo panel depende de una animación para aparecer.
+- **Interacción:** controles de al menos 44px, foco visible, navegación interna con anclas,
+  detalles nativos y estados seleccionados semánticos. Sin giros de tarjetas ni hover obligatorio.
+- **Pie:** superficie verde profundo, navegación breve y contexto estudiantil; vitral como franja.
+- **Fuentes:** los roles son ejemplos documentados, no ofertas en vivo. Enlaces y fecha de revisión
+  visibles; certificados, cursos y exámenes se distinguen. Ninguna marca implica asociación.
+
 ## Overview
 
 **Creative North Star: "El vitral y el papel"**
