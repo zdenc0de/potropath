@@ -70,8 +70,3 @@ export const ROADMAP = {
   },
 }
 
-// Compatibilidad con la primera vista mientras se entrega la siguiente fase.
-for (const route of Object.values(ROADMAP)) {
-  route.skills = route.learning.map((item) => item.name)
-  route.certifications = []
-}

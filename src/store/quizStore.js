@@ -58,7 +58,7 @@ export const useQuizStore = create(
         }))
       },
 
-      /** Puntaje por área normalizado a porcentaje (0-100) de afinidad. */
+      /** Afinidad por área: porcentaje del máximo, escala efectiva 20–100 al completar. */
       computeResults() {
         return computeAffinity(get().answers)
       },

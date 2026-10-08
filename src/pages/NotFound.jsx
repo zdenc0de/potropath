@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom'
-import Reveal from '../components/motion/Reveal'
 import { useDocumentTitle } from '../lib/useDocumentTitle'
 
 function NotFound() {
   useDocumentTitle('Página no encontrada — PotroPath')
 
   return (
-    <Reveal
-      as="section"
+    <section
       // `flex-1` + `justify-center`: la columna del layout mide `min-h-svh` y
       // esta pantalla tiene tres líneas de contenido, así que sin centrar
       // quedaba pegada arriba con un vacío de casi media pantalla debajo. El
@@ -16,7 +14,6 @@ function NotFound() {
       // una pantalla de lectura, y a 72rem la línea del párrafo se iba muy por
       // encima de la medida cómoda.
       className="mx-auto flex max-w-2xl flex-1 flex-col items-center justify-center gap-4 px-6 py-24 text-center"
-      stagger={{ amount: 0.12 }}
     >
       <h1 className="h1">Página no encontrada</h1>
       <p className="lead">
@@ -36,7 +33,7 @@ function NotFound() {
           Volver al inicio
         </Link>
       </div>
-    </Reveal>
+    </section>
   )
 }
 
